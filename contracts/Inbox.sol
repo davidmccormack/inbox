@@ -11,7 +11,7 @@ contract Inbox {
         message = newMessage;
     }
 
-    function getMessage() pure public {
+    function getMessage() public constant returns(string) {
         return message;
     }
 
