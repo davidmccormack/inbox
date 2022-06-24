@@ -10,4 +10,7 @@ const source = fs.readFileSync(inboxPath, 'utf8');
 
 // import solidity compiler and compile contact.
 const solc = require('solc');
-console.log(solc.compile(source, 1));
+
+// Exporting compiled inbox contract.
+// Now, whenever we import the compile file, we will have access to our compiled smart contract.
+module.exports = solc.compile(source, 1).contracts[':Inbox'];
