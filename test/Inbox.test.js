@@ -55,9 +55,14 @@ describe('Inbox', function () {
         assert.strictEqual(message, "Hi there!");
     })
 
-    it('modifies message', async () => {
-
+    it('can change the message', async () => {
+        const NEW_MESSAGE = "Hello World!"
+        await _inbox.methods.setMessage(NEW_MESSAGE).send(_accounts[0]);
+        const message = await _inbox.methods.message().call();
+        assert.strictEqual(message, NEW_MESSAGE);
     })
+
+
 
 });
 
