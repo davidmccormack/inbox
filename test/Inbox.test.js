@@ -46,7 +46,17 @@ beforeEach(async () => {
 describe('Inbox', function () {
 
     it('should deploy the Inbox contract', () => {
-        console.log(_inbox);
+        assert.ok(_inbox.options.address);
+    })
+
+    it('has an initial message', async () => {
+        // All contract methods can be found within the .methods interface.
+        const message = await _inbox.methods.message().call();
+        assert.strictEqual(message, "Hi there!");
+    })
+
+    it('modifies message', async () => {
+
     })
 
 });
